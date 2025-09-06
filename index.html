@@ -3,62 +3,373 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best Products - Affiliate Marketing</title>
+    <title>Best Product Reviews - Global Shopping Guide</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        h1 {
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
             color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
             text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
-        .product {
-            border: 1px solid #ddd;
-            margin: 20px 0;
-            padding: 15px;
-            border-radius: 5px;
+        
+        header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
         }
-        .btn {
-            background-color: #ff9900;
-            color: white;
+        
+        header p {
+            color: #7f8c8d;
+            font-size: 1.2em;
+        }
+        
+        .country-selector {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .country-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .country-btn {
             padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .country-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .country-btn.active {
+            background: #e74c3c;
+            transform: scale(1.05);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .product-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+        }
+        
+        .product-card h3 {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+        }
+        
+        .product-card p {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .price-tag {
+            background: #e74c3c;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
             display: inline-block;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .buy-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff9a00, #ffad33);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(255, 154, 0, 0.4);
+        }
+        
+        .buy-btn:hover {
+            background: linear-gradient(45deg, #ff8c00, #ff9500);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 154, 0, 0.6);
+        }
+        
+        .disclaimer {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .disclaimer p {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .country-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Best Product Reviews & Recommendations</h1>
+        <header>
+            <h1>🌟 Global Product Reviews</h1>
+            <p>Find the best products with exclusive deals worldwide</p>
+        </header>
         
-        <div class="product">
-            <h2>Product 1 - Amazing Gadget</h2>
-            <p>This is the best product for your needs. Great quality and amazing features.</p>
-            <a href="#" class="btn">Buy Now on Amazon</a>
+        <div class="country-selector">
+            <h2>🌍 Select Your Country</h2>
+            <div class="country-buttons">
+                <button class="country-btn active" onclick="selectCountry('us')">🇺🇸 USA</button>
+                <button class="country-btn" onclick="selectCountry('in')">🇮🇳 India</button>
+                <button class="country-btn" onclick="selectCountry('sa')">🇸🇦 Saudi Arabia</button>
+                <button class="country-btn" onclick="selectCountry('ae')">🇦🇪 UAE</button>
+            </div>
         </div>
         
-        <div class="product">
-            <h2>Product 2 - Super Tool</h2>
-            <p>Perfect solution for daily use. Highly recommended by experts.</p>
-            <a href="#" class="btn">Buy Now on Amazon</a>
+        <div class="products-grid">
+            <div class="product-card">
+                <h3>🎧 Premium Wireless Headphones</h3>
+                <div class="price-tag">Best Seller</div>
+                <p>Experience crystal-clear sound quality with these premium wireless headphones. Perfect for music lovers, gamers, and professionals. Features noise cancellation and 30-hour battery life.</p>
+                <a href="#" class="buy-btn" id="headphones-link">🛒 Buy Now on Amazon</a>
+            </div>
+            
+            <div class="product-card">
+                <h3>📱 Smartphone Accessories Kit</h3>
+                <div class="price-tag">Top Rated</div>
+                <p>Complete smartphone accessories kit including wireless charger, screen protector, phone case, and more. Compatible with most smartphone models. Great value for money.</p>
+                <a href="#" class="buy-btn" id="accessories-link">🛒 Buy Now on Amazon</a>
+            </div>
+            
+            <div class="product-card">
+                <h3>💻 Laptop Stand & Cooling Pad</h3>
+                <div class="price-tag">Editor's Choice</div>
+                <p>Ergonomic laptop stand with built-in cooling system. Reduces neck strain and prevents laptop overheating. Perfect for work from home setup. Adjustable height and angle.</p>
+                <a href="#" class="buy-btn" id="laptop-stand-link">🛒 Buy Now on Amazon</a>
+            </div>
+            
+            <div class="product-card">
+                <h3>🏠 Smart Home Security Camera</h3>
+                <div class="price-tag">Trending</div>
+                <p>Keep your home secure with this smart WiFi security camera. Features 1080p HD video, night vision, motion detection, and mobile app control. Easy setup and installation.</p>
+                <a href="#" class="buy-btn" id="camera-link">🛒 Buy Now on Amazon</a>
+            </div>
+            
+            <div class="product-card">
+                <h3>⌚ Fitness Tracker Smartwatch</h3>
+                <div class="price-tag">Health Essential</div>
+                <p>Track your fitness goals with this advanced smartwatch. Monitor heart rate, steps, sleep, and calories. Waterproof design with 7-day battery life. Compatible with iOS and Android.</p>
+                <a href="#" class="buy-btn" id="fitness-tracker-link">🛒 Buy Now on Amazon</a>
+            </div>
+            
+            <div class="product-card">
+                <h3>🎮 Gaming Mouse & Keyboard Combo</h3>
+                <div class="price-tag">Gamer's Pick</div>
+                <p>Professional gaming combo with RGB backlit keyboard and precision gaming mouse. Mechanical switches for tactile feedback. Perfect for gaming enthusiasts and esports players.</p>
+                <a href="#" class="buy-btn" id="gaming-combo-link">🛒 Buy Now on Amazon</a>
+            </div>
         </div>
         
-        <div class="product">
-            <h2>Product 3 - Must Have Item</h2>
-            <p>Don't miss this incredible offer. Limited time deal available.</p>
-            <a href="#" class="btn">Buy Now on Amazon</a>
+        <div class="disclaimer">
+            <p><strong>Affiliate Disclosure:</strong> This website contains affiliate links. We may earn a commission when you make a purchase through these links, at no additional cost to you. This helps us maintain and improve our website to provide better product recommendations.</p>
         </div>
     </div>
+    
+    <script>
+        // Amazon Associate IDs for different countries
+        const associateIds = {
+            us: 'bajaman03-20',
+            in: 'bajaman02-21', 
+            sa: 'bajaman0f-21',
+            ae: 'bajaman0e-21'
+        };
+        
+        // Amazon domains for different countries
+        const amazonDomains = {
+            us: 'amazon.com',
+            in: 'amazon.in',
+            sa: 'amazon.sa', 
+            ae: 'amazon.ae'
+        };
+        
+        // Sample product ASINs (replace with real product ASINs)
+        const productLinks = {
+            headphones: {
+                us: 'B08PZHYWJS', // Example ASIN - replace with real
+                in: 'B08PZHYWJS',
+                sa: 'B08PZHYWJS', 
+                ae: 'B08PZHYWJS'
+            },
+            accessories: {
+                us: 'B087QBQZPX',
+                in: 'B087QBQZPX',
+                sa: 'B087QBQZPX',
+                ae: 'B087QBQZPX'
+            },
+            laptop_stand: {
+                us: 'B074P1XLCZ',
+                in: 'B074P1XLCZ', 
+                sa: 'B074P1XLCZ',
+                ae: 'B074P1XLCZ'
+            },
+            camera: {
+                us: 'B07DGR98VQ',
+                in: 'B07DGR98VQ',
+                sa: 'B07DGR98VQ', 
+                ae: 'B07DGR98VQ'
+            },
+            fitness_tracker: {
+                us: 'B09DG41Y49',
+                in: 'B09DG41Y49',
+                sa: 'B09DG41Y49',
+                ae: 'B09DG41Y49'
+            },
+            gaming_combo: {
+                us: 'B07GV5HSRG', 
+                in: 'B07GV5HSRG',
+                sa: 'B07GV5HSRG',
+                ae: 'B07GV5HSRG'
+            }
+        };
+        
+        let currentCountry = 'us';
+        
+        function selectCountry(country) {
+            currentCountry = country;
+            
+            // Update active button
+            document.querySelectorAll('.country-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update all product links
+            updateProductLinks();
+        }
+        
+        function updateProductLinks() {
+            const associateId = associateIds[currentCountry];
+            const domain = amazonDomains[currentCountry];
+            
+            // Update headphones link
+            const headphonesASIN = productLinks.headphones[currentCountry];
+            document.getElementById('headphones-link').href = 
+                `https://www.${domain}/dp/${headphonesASIN}?tag=${associateId}`;
+            
+            // Update accessories link 
+            const accessoriesASIN = productLinks.accessories[currentCountry];
+            document.getElementById('accessories-link').href = 
+                `https://www.${domain}/dp/${accessoriesASIN}?tag=${associateId}`;
+                
+            // Update laptop stand link
+            const laptopStandASIN = productLinks.laptop_stand[currentCountry]; 
+            document.getElementById('laptop-stand-link').href = 
+                `https://www.${domain}/dp/${laptopStandASIN}?tag=${associateId}`;
+                
+            // Update camera link
+            const cameraASIN = productLinks.camera[currentCountry];
+            document.getElementById('camera-link').href = 
+                `https://www.${domain}/dp/${cameraASIN}?tag=${associateId}`;
+                
+            // Update fitness tracker link
+            const fitnessTrackerASIN = productLinks.fitness_tracker[currentCountry];
+            document.getElementById('fitness-tracker-link').href = 
+                `https://www.${domain}/dp/${fitnessTrackerASIN}?tag=${associateId}`;
+                
+            // Update gaming combo link
+            const gamingComboASIN = productLinks.gaming_combo[currentCountry];
+            document.getElementById('gaming-combo-link').href = 
+                `https://www.${domain}/dp/${gamingComboASIN}?tag=${associateId}`;
+        }
+        
+        // Initialize with default country (US)
+        updateProductLinks();
+    </script>
 </body>
 </html>
