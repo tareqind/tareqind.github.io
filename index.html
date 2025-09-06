@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best Product Reviews - Global Shopping Guide</title>
+    <title>Best Products India - Product Reviews & Deals</title>
     <style>
         * {
             margin: 0;
@@ -27,7 +27,7 @@
         
         header {
             background: rgba(255, 255, 255, 0.95);
-            padding: 20px;
+            padding: 30px;
             border-radius: 15px;
             margin-bottom: 30px;
             text-align: center;
@@ -36,53 +36,24 @@
         
         header h1 {
             color: #2c3e50;
-            font-size: 2.5em;
+            font-size: 2.8em;
             margin-bottom: 10px;
         }
         
         header p {
             color: #7f8c8d;
-            font-size: 1.2em;
+            font-size: 1.3em;
         }
         
-        .country-selector {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        
-        .country-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        
-        .country-btn {
-            padding: 10px 20px;
-            background: #3498db;
+        .india-badge {
+            background: linear-gradient(45deg, #ff9933, #138808);
             color: white;
-            border: none;
+            padding: 10px 25px;
             border-radius: 25px;
-            cursor: pointer;
             font-weight: bold;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .country-btn:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        
-        .country-btn.active {
-            background: #e74c3c;
-            transform: scale(1.05);
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 1.1em;
         }
         
         .products-grid {
@@ -114,7 +85,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+            background: linear-gradient(90deg, #ff9933, #138808, #000080);
         }
         
         .product-card h3 {
@@ -145,7 +116,7 @@
             display: inline-block;
             background: linear-gradient(45deg, #ff9a00, #ffad33);
             color: white;
-            padding: 12px 30px;
+            padding: 15px 35px;
             text-decoration: none;
             border-radius: 25px;
             font-weight: bold;
@@ -153,6 +124,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             box-shadow: 0 5px 15px rgba(255, 154, 0, 0.4);
+            font-size: 1.1em;
         }
         
         .buy-btn:hover {
@@ -163,7 +135,7 @@
         
         .disclaimer {
             background: rgba(255, 255, 255, 0.95);
-            padding: 20px;
+            padding: 25px;
             border-radius: 15px;
             margin-top: 40px;
             text-align: center;
@@ -172,7 +144,8 @@
         
         .disclaimer p {
             color: #7f8c8d;
-            font-size: 0.9em;
+            font-size: 1em;
+            line-height: 1.6;
         }
         
         @media (max-width: 768px) {
@@ -181,12 +154,7 @@
             }
             
             header h1 {
-                font-size: 2em;
-            }
-            
-            .country-buttons {
-                flex-direction: column;
-                align-items: center;
+                font-size: 2.2em;
             }
             
             .products-grid {
@@ -198,178 +166,61 @@
 <body>
     <div class="container">
         <header>
-            <h1>🌟 Global Product Reviews</h1>
-            <p>Find the best products with exclusive deals worldwide</p>
+            <h1>🛒 Best Products India</h1>
+            <p>Find the best products with exclusive deals on Amazon India</p>
+            <div class="india-badge">🇮🇳 Made for Indian Shoppers</div>
         </header>
-        
-        <div class="country-selector">
-            <h2>🌍 Select Your Country</h2>
-            <div class="country-buttons">
-                <button class="country-btn active" onclick="selectCountry('us')">🇺🇸 USA</button>
-                <button class="country-btn" onclick="selectCountry('in')">🇮🇳 India</button>
-                <button class="country-btn" onclick="selectCountry('sa')">🇸🇦 Saudi Arabia</button>
-                <button class="country-btn" onclick="selectCountry('ae')">🇦🇪 UAE</button>
-            </div>
-        </div>
         
         <div class="products-grid">
             <div class="product-card">
-                <h3>🎧 Premium Wireless Headphones</h3>
-                <div class="price-tag">Best Seller</div>
-                <p>Experience crystal-clear sound quality with these premium wireless headphones. Perfect for music lovers, gamers, and professionals. Features noise cancellation and 30-hour battery life.</p>
-                <a href="#" class="buy-btn" id="headphones-link">🛒 Buy Now on Amazon</a>
+                <h3>🧽 Kitchen Cleaning Tools</h3>
+                <div class="price-tag">Best Seller ⭐</div>
+                <p>Multi-purpose bathroom and kitchen cleaning tools with long handle. Perfect for deep cleaning hard-to-reach areas. Durable and efficient cleaning solution for Indian homes.</p>
+                <a href="https://www.amazon.in/dp/B0C74C6821?tag=bajaman02-21" class="buy-btn">🛒 Buy Now on Amazon India</a>
             </div>
             
             <div class="product-card">
-                <h3>📱 Smartphone Accessories Kit</h3>
-                <div class="price-tag">Top Rated</div>
-                <p>Complete smartphone accessories kit including wireless charger, screen protector, phone case, and more. Compatible with most smartphone models. Great value for money.</p>
-                <a href="#" class="buy-btn" id="accessories-link">🛒 Buy Now on Amazon</a>
+                <h3>📱 Mobile Phone Accessories</h3>
+                <div class="price-tag">Top Rated ⭐⭐⭐⭐⭐</div>
+                <p>Essential smartphone accessories kit including chargers, screen guards, phone cases and more. Compatible with all popular smartphone brands available in India.</p>
+                <a href="https://www.amazon.in/dp/YOUR_PHONE_ACCESSORIES_ASIN?tag=bajaman02-21" class="buy-btn">🛒 Buy Now on Amazon India</a>
             </div>
             
             <div class="product-card">
-                <h3>💻 Laptop Stand & Cooling Pad</h3>
-                <div class="price-tag">Editor's Choice</div>
-                <p>Ergonomic laptop stand with built-in cooling system. Reduces neck strain and prevents laptop overheating. Perfect for work from home setup. Adjustable height and angle.</p>
-                <a href="#" class="buy-btn" id="laptop-stand-link">🛒 Buy Now on Amazon</a>
+                <h3>🏠 Home Appliances</h3>
+                <div class="price-tag">Editor's Choice ✨</div>
+                <p>Smart home appliances designed for Indian households. Energy efficient and perfect for Indian weather conditions. Great value for money with warranty support.</p>
+                <a href="https://www.amazon.in/dp/YOUR_HOME_APPLIANCE_ASIN?tag=bajaman02-21" class="buy-btn">🛒 Buy Now on Amazon India</a>
             </div>
             
             <div class="product-card">
-                <h3>🏠 Smart Home Security Camera</h3>
-                <div class="price-tag">Trending</div>
-                <p>Keep your home secure with this smart WiFi security camera. Features 1080p HD video, night vision, motion detection, and mobile app control. Easy setup and installation.</p>
-                <a href="#" class="buy-btn" id="camera-link">🛒 Buy Now on Amazon</a>
+                <h3>💄 Beauty & Personal Care</h3>
+                <div class="price-tag">Trending 🔥</div>
+                <p>Premium beauty and personal care products suitable for Indian skin and hair types. Dermatologist recommended and made with natural ingredients.</p>
+                <a href="https://www.amazon.in/dp/YOUR_BEAUTY_PRODUCT_ASIN?tag=bajaman02-21" class="buy-btn">🛒 Buy Now on Amazon India</a>
             </div>
             
             <div class="product-card">
-                <h3>⌚ Fitness Tracker Smartwatch</h3>
-                <div class="price-tag">Health Essential</div>
-                <p>Track your fitness goals with this advanced smartwatch. Monitor heart rate, steps, sleep, and calories. Waterproof design with 7-day battery life. Compatible with iOS and Android.</p>
-                <a href="#" class="buy-btn" id="fitness-tracker-link">🛒 Buy Now on Amazon</a>
+                <h3>🍳 Kitchen Gadgets</h3>
+                <div class="price-tag">Chef's Pick 👨‍🍳</div>
+                <p>Innovative kitchen gadgets perfect for Indian cooking. Makes daily cooking easier and faster. Durable stainless steel construction with easy maintenance.</p>
+                <a href="https://www.amazon.in/dp/YOUR_KITCHEN_GADGET_ASIN?tag=bajaman02-21" class="buy-btn">🛒 Buy Now on Amazon India</a>
             </div>
             
             <div class="product-card">
-                <h3>🎮 Gaming Mouse & Keyboard Combo</h3>
-                <div class="price-tag">Gamer's Pick</div>
-                <p>Professional gaming combo with RGB backlit keyboard and precision gaming mouse. Mechanical switches for tactile feedback. Perfect for gaming enthusiasts and esports players.</p>
-                <a href="#" class="buy-btn" id="gaming-combo-link">🛒 Buy Now on Amazon</a>
+                <h3>🎧 Electronics & Gadgets</h3>
+                <div class="price-tag">Tech Lover's Choice 💻</div>
+                <p>Latest electronic gadgets and accessories. High quality products with excellent performance and durability. Perfect for tech enthusiasts and professionals.</p>
+                <a href="https://www.amazon.in/dp/YOUR_ELECTRONICS_ASIN?tag=bajaman02-21" class="buy-btn">🛒 Buy Now on Amazon India</a>
             </div>
         </div>
         
         <div class="disclaimer">
-            <p><strong>Affiliate Disclosure:</strong> This website contains affiliate links. We may earn a commission when you make a purchase through these links, at no additional cost to you. This helps us maintain and improve our website to provide better product recommendations.</p>
+            <h3>📋 Affiliate Disclosure</h3>
+            <p><strong>यह website affiliate links contain करती है।</strong> जब आप इन links के through purchase करते हैं, तो हमें एक small commission मिल सकता है, बिना आपकी cost बढ़े। यह हमारी website को maintain करने और बेहतर product recommendations provide करने में help करता है।</p>
+            <br>
+            <p><strong>Amazon Associate Program:</strong> We are participants in the Amazon Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.in</p>
         </div>
     </div>
-    
-    <script>
-        // Amazon Associate IDs for different countries
-        const associateIds = {
-            us: 'bajaman03-20',
-            in: 'bajaman02-21', 
-            sa: 'bajaman0f-21',
-            ae: 'bajaman0e-21'
-        };
-        
-        // Amazon domains for different countries
-        const amazonDomains = {
-            us: 'amazon.com',
-            in: 'amazon.in',
-            sa: 'amazon.sa', 
-            ae: 'amazon.ae'
-        };
-        
-        // Sample product ASINs (replace with real product ASINs)
-        const productLinks = {
-            headphones: {
-                us: 'B08PZHYWJS', // Example ASIN - replace with real
-                in: 'B0C74C6821',
-                sa: 'B08PZHYWJS', 
-                ae: 'B08PZHYWJS'
-            },
-            accessories: {
-                us: 'B087QBQZPX',
-                in: 'B087QBQZPX',
-                sa: 'B087QBQZPX',
-                ae: 'B087QBQZPX'
-            },
-            laptop_stand: {
-                us: 'B074P1XLCZ',
-                in: 'B074P1XLCZ', 
-                sa: 'B074P1XLCZ',
-                ae: 'B074P1XLCZ'
-            },
-            camera: {
-                us: 'B07DGR98VQ',
-                in: 'B07DGR98VQ',
-                sa: 'B07DGR98VQ', 
-                ae: 'B07DGR98VQ'
-            },
-            fitness_tracker: {
-                us: 'B09DG41Y49',
-                in: 'B09DG41Y49',
-                sa: 'B09DG41Y49',
-                ae: 'B09DG41Y49'
-            },
-            gaming_combo: {
-                us: 'B07GV5HSRG', 
-                in: 'B07GV5HSRG',
-                sa: 'B07GV5HSRG',
-                ae: 'B07GV5HSRG'
-            }
-        };
-        
-        let currentCountry = 'us';
-        
-        function selectCountry(country) {
-            currentCountry = country;
-            
-            // Update active button
-            document.querySelectorAll('.country-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            // Update all product links
-            updateProductLinks();
-        }
-        
-        function updateProductLinks() {
-            const associateId = associateIds[currentCountry];
-            const domain = amazonDomains[currentCountry];
-            
-            // Update headphones link
-            const headphonesASIN = productLinks.headphones[currentCountry];
-            document.getElementById('headphones-link').href = 
-                `https://www.${domain}/dp/${headphonesASIN}?tag=${associateId}`;
-            
-            // Update accessories link 
-            const accessoriesASIN = productLinks.accessories[currentCountry];
-            document.getElementById('accessories-link').href = 
-                `https://www.${domain}/dp/${accessoriesASIN}?tag=${associateId}`;
-                
-            // Update laptop stand link
-            const laptopStandASIN = productLinks.laptop_stand[currentCountry]; 
-            document.getElementById('laptop-stand-link').href = 
-                `https://www.${domain}/dp/${laptopStandASIN}?tag=${associateId}`;
-                
-            // Update camera link
-            const cameraASIN = productLinks.camera[currentCountry];
-            document.getElementById('camera-link').href = 
-                `https://www.${domain}/dp/${cameraASIN}?tag=${associateId}`;
-                
-            // Update fitness tracker link
-            const fitnessTrackerASIN = productLinks.fitness_tracker[currentCountry];
-            document.getElementById('fitness-tracker-link').href = 
-                `https://www.${domain}/dp/${fitnessTrackerASIN}?tag=${associateId}`;
-                
-            // Update gaming combo link
-            const gamingComboASIN = productLinks.gaming_combo[currentCountry];
-            document.getElementById('gaming-combo-link').href = 
-                `https://www.${domain}/dp/${gamingComboASIN}?tag=${associateId}`;
-        }
-        
-        // Initialize with default country (US)
-        updateProductLinks();
-    </script>
 </body>
 </html>
