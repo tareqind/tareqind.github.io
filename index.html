@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best Products India - Product Reviews & Deals</title>
+    <title>New Bajaman Traders - Premium Product Reviews & Deals</title>
     <style>
         * {
             margin: 0;
@@ -17,67 +17,273 @@
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Header & Navigation */
+        .header-banner {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 100%);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            margin: 20px;
             padding: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
         }
-        
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+        .header-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 3s infinite;
         }
-        
-        header h1 {
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .brand-text {
             color: #2c3e50;
-            font-size: 2.8em;
-            margin-bottom: 10px;
         }
-        
-        header p {
+
+        .brand-text h1 {
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+            margin-bottom: 5px;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% { filter: brightness(1); }
+            100% { filter: brightness(1.2); }
+        }
+
+        .brand-text p {
+            font-size: 1.2em;
             color: #7f8c8d;
-            font-size: 1.3em;
+            font-weight: 500;
         }
-        
-        .india-badge {
-            background: linear-gradient(45deg, #ff9933, #138808);
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
             color: white;
-            padding: 10px 25px;
+            text-decoration: none;
             border-radius: 25px;
             font-weight: bold;
-            display: inline-block;
-            margin-top: 15px;
-            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-item:hover::before {
+            left: 100%;
+        }
+
+        .nav-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            margin: 30px 20px;
+            padding: 50px;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 300% 300%;
+            animation: gradientShift 5s ease infinite;
+        }
+
+        .hero-title {
+            font-size: 3.5em;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            animation: bounceIn 1s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5em;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.3em;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4); }
+            50% { box-shadow: 0 15px 40px rgba(245, 87, 108, 0.6); }
+            100% { box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4); }
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(245, 87, 108, 0.6);
+        }
+
+        /* Products Section */
+        .products-section {
+            margin: 30px 20px;
+            padding: 40px;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8em;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
-            margin-top: 30px;
+            margin-top: 50px;
         }
         
         .product-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(102, 126, 234, 0.1);
         }
-        
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-        
+
         .product-card::before {
             content: '';
             position: absolute;
@@ -85,12 +291,24 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #ff9933, #138808, #000080);
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover::before {
+            transform: translateX(0);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(102, 126, 234, 0.3);
+            border-color: rgba(102, 126, 234, 0.3);
         }
         
         .product-card h3 {
             color: #2c3e50;
-            font-size: 1.5em;
+            font-size: 1.6em;
             margin-bottom: 15px;
             border-bottom: 2px solid #ecf0f1;
             padding-bottom: 10px;
@@ -98,23 +316,30 @@
         
         .product-card p {
             color: #7f8c8d;
-            margin-bottom: 20px;
-            line-height: 1.6;
+            margin-bottom: 25px;
+            line-height: 1.7;
         }
         
         .price-tag {
-            background: #e74c3c;
+            background: linear-gradient(45deg, #f093fb, #f5576c);
             color: white;
-            padding: 5px 15px;
+            padding: 8px 20px;
             border-radius: 20px;
             display: inline-block;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.3);
+            animation: tagFloat 2s ease-in-out infinite;
+        }
+
+        @keyframes tagFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
         }
         
-        .buy-btn {
+        .view-btn {
             display: inline-block;
-            background: linear-gradient(45deg, #ff9a00, #ffad33);
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
             color: white;
             padding: 15px 35px;
             text-decoration: none;
@@ -123,104 +348,277 @@
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 5px 15px rgba(255, 154, 0, 0.4);
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
             font-size: 1.1em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .view-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .view-btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
         
-        .buy-btn:hover {
-            background: linear-gradient(45deg, #ff8c00, #ff9500);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 154, 0, 0.6);
+        .view-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(79, 172, 254, 0.6);
         }
-        
+
+        /* Stats Section */
+        .stats-section {
+            margin: 30px 20px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95), rgba(118, 75, 162, 0.95));
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            animation: countUp 2s ease-out;
+        }
+
+        .stat-item p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        @keyframes countUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        .footer {
+            margin: 30px 20px;
+            padding: 40px;
+            background: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            color: white;
+            text-align: center;
+        }
+
         .disclaimer {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255,255,255,0.1);
             padding: 25px;
             border-radius: 15px;
-            margin-top: 40px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
         }
-        
-        .disclaimer p {
-            color: #7f8c8d;
-            font-size: 1em;
-            line-height: 1.6;
-        }
-        
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 10px;
+            .nav-container {
+                flex-direction: column;
+                text-align: center;
             }
             
-            header h1 {
-                font-size: 2.2em;
+            .brand-text h1 {
+                font-size: 2em;
+            }
+            
+            .hero-title {
+                font-size: 2.5em;
             }
             
             .products-grid {
                 grid-template-columns: 1fr;
             }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Floating Elements */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🛒 Best Products India</h1>
-            <p>Find the best products with exclusive deals on Amazon India</p>
-            <div class="india-badge">🇮🇳 Made for Indian Shoppers</div>
-        </header>
+    <div class="animated-bg"></div>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header-banner">
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iOTAiIGZpbGw9InVybCgjZ3JhZGllbnQxKSIgc3Ryb2tlPSIjMDAzMzY2IiBzdHJva2Utd2lkdGg9IjQiLz4KPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI2MCIgZmlsbD0id2hpdGUiLz4KPHA+VHJhZGU8L3A+CjxwPndpdGg8L3A+CjxwPlRydXN0PC9wPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJncmFkaWVudDEiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDBGRkZGIi8+CjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMDBGRjAwIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0ZGRkYwMCIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+Cjwvc3ZnPgo=" alt="New Bajaman Traders Logo" class="logo">
+                <div class="brand-text">
+                    <h1>New Bajaman Traders</h1>
+                    <p>✨ Trade with Trust & Excellence ✨</p>
+                </div>
+            </div>
+            <nav class="nav-menu">
+                <a href="#home" class="nav-item">🏠 Home</a>
+                <a href="#products" class="nav-item">🛍️ Products</a>
+                <a href="#deals" class="nav-item">💰 Best Deals</a>
+                <a href="#about" class="nav-item">ℹ️ About Us</a>
+                <a href="#contact" class="nav-item">📞 Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <h1 class="hero-title">🌟 Premium Product Paradise 🌟</h1>
+        <p class="hero-subtitle">Discover Amazing Products with Unbeatable Deals - Your Trusted Shopping Partner Since 2024</p>
+        <a href="#products" class="cta-button">🚀 Explore Best Deals Now!</a>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>10,000+</h3>
+                <p>Happy Customers</p>
+            </div>
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>Products Reviewed</p>
+            </div>
+            <div class="stat-item">
+                <h3>99.5%</h3>
+                <p>Customer Satisfaction</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Support Available</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <h2 class="section-title">🎯 Featured Products & Deals</h2>
         
         <div class="products-grid">
             <div class="product-card">
-                <h3>🧽 Kitchen Cleaning Tools</h3>
-                <div class="price-tag">Best Seller ⭐</div>
-                <p>Multi-purpose bathroom and kitchen cleaning tools with long handle. Perfect for deep cleaning hard-to-reach areas. Durable and efficient cleaning solution for Indian homes.</p>
-                <a href="https://www.amazon.in/dp/B0C74C6821?tag=bajaman02-21" class="buy-btn">🛒 Buy Now on Amazon India</a>
+                <h3>🧽 Premium Kitchen Cleaning Tools</h3>
+                <div class="price-tag">🔥 Best Seller ⭐⭐⭐⭐⭐</div>
+                <p>Multi-purpose bathroom and kitchen cleaning tools with ergonomic long handle. Perfect for deep cleaning hard-to-reach areas. Durable, efficient, and designed specifically for Indian homes. Get professional cleaning results every time!</p>
+                <a href="https://www.amazon.in/dp/B0C74C6821?tag=bajaman02-21" class="view-btn" target="_blank">🛒 View on Amazon</a>
             </div>
             
             <div class="product-card">
-                <h3>📱 Mobile Phone Accessories</h3>
-                <div class="price-tag">Top Rated ⭐⭐⭐⭐⭐</div>
-                <p>Essential smartphone accessories kit including chargers, screen guards, phone cases and more. Compatible with all popular smartphone brands available in India.</p>
-                <a href="https://www.amazon.in/dp/YOUR_PHONE_ACCESSORIES_ASIN?tag=bajaman02-21" class="buy-btn">🛒 Buy Now on Amazon India</a>
+                <h3>📱 Smartphone Accessories Mega Pack</h3>
+                <div class="price-tag">💎 Premium Choice ⭐⭐⭐⭐⭐</div>
+                <p>Complete smartphone accessories collection including fast chargers, tempered glass, premium cases, and more. Compatible with all popular smartphone brands available in India. Ultimate protection and convenience package!</p>
+                <a href="https://www.amazon.in/dp/YOUR_PHONE_ACCESSORIES_ASIN?tag=bajaman02-21" class="view-btn" target="_blank">🛒 View on Amazon</a>
             </div>
             
             <div class="product-card">
-                <h3>🏠 Home Appliances</h3>
-                <div class="price-tag">Editor's Choice ✨</div>
-                <p>Smart home appliances designed for Indian households. Energy efficient and perfect for Indian weather conditions. Great value for money with warranty support.</p>
-                <a href="https://www.amazon.in/dp/YOUR_HOME_APPLIANCE_ASIN?tag=bajaman02-21" class="buy-btn">🛒 Buy Now on Amazon India</a>
+                <h3>🏠 Smart Home Appliances</h3>
+                <div class="price-tag">⚡ Editor's Choice ⭐⭐⭐⭐⭐</div>
+                <p>Revolutionary smart home appliances designed specifically for Indian households. Energy efficient, climate-optimized, and perfect for Indian weather conditions. Transform your home into a smart paradise with amazing warranty support!</p>
+                <a href="https://www.amazon.in/dp/YOUR_HOME_APPLIANCE_ASIN?tag=bajaman02-21" class="view-btn" target="_blank">🛒 View on Amazon</a>
             </div>
             
             <div class="product-card">
-                <h3>💄 Beauty & Personal Care</h3>
-                <div class="price-tag">Trending 🔥</div>
-                <p>Premium beauty and personal care products suitable for Indian skin and hair types. Dermatologist recommended and made with natural ingredients.</p>
-                <a href="https://www.amazon.in/dp/YOUR_BEAUTY_PRODUCT_ASIN?tag=bajaman02-21" class="buy-btn">🛒 Buy Now on Amazon India</a>
+                <h3>💄 Premium Beauty & Personal Care</h3>
+                <div class="price-tag">🌟 Trending Now ⭐⭐⭐⭐⭐</div>
+                <p>Luxury beauty and personal care products specially formulated for Indian skin and hair types. Dermatologist recommended, made with natural ingredients, and trusted by thousands of satisfied customers across India!</p>
+                <a href="https://www.amazon.in/dp/YOUR_BEAUTY_PRODUCT_ASIN?tag=bajaman02-21" class="view-btn" target="_blank">🛒 View on Amazon</a>
             </div>
             
             <div class="product-card">
-                <h3>🍳 Kitchen Gadgets</h3>
-                <div class="price-tag">Chef's Pick 👨‍🍳</div>
-                <p>Innovative kitchen gadgets perfect for Indian cooking. Makes daily cooking easier and faster. Durable stainless steel construction with easy maintenance.</p>
-                <a href="https://www.amazon.in/dp/YOUR_KITCHEN_GADGET_ASIN?tag=bajaman02-21" class="buy-btn">🛒 Buy Now on Amazon India</a>
+                <h3>🍳 Master Chef Kitchen Gadgets</h3>
+                <div class="price-tag">👨‍🍳 Chef's Special ⭐⭐⭐⭐⭐</div>
+                <p>Professional-grade kitchen gadgets perfect for Indian cooking styles. Makes daily cooking easier, faster, and more enjoyable. Premium stainless steel construction with easy maintenance. Bring restaurant quality to your home kitchen!</p>
+                <a href="https://www.amazon.in/dp/YOUR_KITCHEN_GADGET_ASIN?tag=bajaman02-21" class="view-btn" target="_blank">🛒 View on Amazon</a>
             </div>
             
             <div class="product-card">
-                <h3>🎧 Electronics & Gadgets</h3>
-                <div class="price-tag">Tech Lover's Choice 💻</div>
-                <p>Latest electronic gadgets and accessories. High quality products with excellent performance and durability. Perfect for tech enthusiasts and professionals.</p>
-                <a href="https://www.amazon.in/dp/YOUR_ELECTRONICS_ASIN?tag=bajaman02-21" class="buy-btn" target="_blank">🛒 View on Amazon</a>
+                <h3>🎧 Latest Electronics & Tech Gadgets</h3>
+                <div class="price-tag">💻 Tech Guru's Pick ⭐⭐⭐⭐⭐</div>
+                <p>Cutting-edge electronic gadgets and accessories with exceptional performance and durability. Perfect for tech enthusiasts, professionals, and gamers. Experience the future of technology with premium quality and unmatched reliability!</p>
+                <a href="https://www.amazon.in/dp/YOUR_ELECTRONICS_ASIN?tag=bajaman02-21" class="view-btn" target="_blank">🛒 View on Amazon</a>
             </div>
         </div>
-        
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
         <div class="disclaimer">
-            <h3>📋 Affiliate Disclosure</h3>
+            <h3>📋 Important Affiliate Disclosure</h3>
             <p><strong>यह website affiliate links contain करती है।</strong> जब आप इन links के through purchase करते हैं, तो हमें एक small commission मिल सकता है, बिना आपकी cost बढ़े। यह हमारी website को maintain करने और बेहतर product recommendations provide करने में help करता है।</p>
             <br>
-            <p><strong>Amazon Associate Program:</strong> We are participants in the Amazon Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.in</p>
+            <p><strong>Amazon Associate Program:</strong> We are proud participants in the Amazon Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.in</p>
         </div>
-    </div>
+        <p>&copy; 2024 New Bajaman Traders. All Rights Reserved. | Made with ❤️ for Indian Shoppers</p>
+        <p>✨ <strong>"Trade with Trust & Excellence"</strong> ✨</p>
+    </footer>
 </body>
 </html>
